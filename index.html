@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshay Batra - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-ring"></div>
+    </div>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-img">
+                <img src="/images/profile_image.jpg" alt="Lakshay Batra">
+            </div>
+            <h1 class="profile-name">Lakshay Batra</h1>
+            <p class="profile-title">Pre-final Year B.Tech Student</p>
+            <ul class="contact-info">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <span>batralakshay16@gmail.com</span>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8901150561</span>
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Patiala, India</span>
+                </li>
+            </ul>
+            <a href="/resume/Lakshay_Batra_Resume.pdf" download class="download-btn">
+                <i class="fas fa-download" style="margin-right: 8px;"></i>
+                Download CV
+            </a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/lakshay-batra-855a4a288" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/DROP5136" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="about">About</button>
+                <button class="nav-tab" data-tab="experience">Education</button>
+                <button class="nav-tab" data-tab="projects">Projects</button>
+                <button class="nav-tab" data-tab="skills">Skills</button>
+                <button class="nav-tab" data-tab="certifications">Certifications</button>
+                <button class="nav-tab" data-tab="contact">Contact</button>
+            </nav>
+            <!-- About Tab -->
+            <div class="tab-content active" id="about">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    I'm a passionate and results-oriented Computer Engineering student at Thapar Institute of Engineering & Technology. I enjoy turning complex problems into simple, beautiful, and intuitive software solutions.
+                </p>
+                <p class="about-text">
+                    I focus on creating applications that balance functionality with design. I believe good software should not only work well but also feel smooth and look great. With every project, I aim to make the user experience as seamless and engaging as possible, while reflecting the purpose and personality behind the product.
+                </p>
+                <h3 style="color: #667eea; margin: 40px 0 25px 0; font-size: 24px;">What I'm Doing</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-brain"></i></div>
+                        <h4 class="service-title">Artificial Intelligence</h4>
+                        <p class="service-desc">Developing intelligent systems and machine learning solutions, including real-time facial emotion recognition.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-code"></i></div>
+                        <h4 class="service-title">Web Development</h4>
+                        <p class="service-desc">Building responsive and dynamic websites using HTML, CSS, and JavaScript for seamless user experiences.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-database"></i></div>
+                        <h4 class="service-title">Database Management</h4>
+                        <p class="service-desc">Designing and implementing efficient database systems using Oracle SQL with normalized schemas.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h4 class="service-title">Digital Design</h4>
+                        <p class="service-desc">Creating visual content and user interfaces using Figma and Adobe Creative Suite.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Education Tab -->
+            <div class="tab-content" id="experience">
+                <h2 class="section-title">Education</h2>
+                <div class="resume-section">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - 2027</div>
+                            <h4 class="timeline-title">B.TECH, Computer Engineering</h4>
+                            <p class="timeline-company">Thapar Institute of Engineering & Technology, Patiala</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023</div>
+                            <h4 class="timeline-title">CBSE (Class XII) - 92%</h4>
+                            <p class="timeline-company">Scholars Rosary Sr. Sec. School, Rohtak</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021</div>
+                            <h4 class="timeline-title">CBSE (Class X) - 94.6%</h4>
+                            <p class="timeline-company">Scholars Rosary Sr. Sec. School, Rohtak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects Tab -->
+            <div class="tab-content" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="portfolio-grid">
+                    <a href="https://github.com/DROP5136/Facial-Emotion-Recognition" target="_blank" class="portfolio-item">
+                        <div class="portfolio-image"><i class="fas fa-brain"></i></div>
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">Facial Emotion Recognition System</h4>
+                            <p class="portfolio-desc">Developed a real-time facial emotion recognition system using Python and OpenCV.</p>
+                        </div>
+                    </a>
+                    <a href="" class="portfolio-item" >
+                        <div class="portfolio-image"><i class="fas fa-database"></i></div>
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">Netflix Database Management System</h4>
+                            <p class="portfolio-desc">Designed a simplified version of Netflix's backend database using Oracle SQL.</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/DROP5136/amazon-clone" target="_blank" class="portfolio-item">
+                        <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">E-commerce Website</h4>
+                            <p class="portfolio-desc">Built a responsive e-commerce website simulating core Amazon functionalities.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Skills Tab -->
+            <div class="tab-content" id="skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-category-grid">
+                    <!-- Programming & Web -->
+                    <div class="skill-category-card">
+                        <h4><i class="fas fa-code"></i> Programming & Web</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>C++ / C</li>
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Oracle SQL</li>
+                        </ul>
+                    </div>
+                    <!-- Tools & Platforms -->
+                    <div class="skill-category-card">
+                        <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Figma</li>
+                        </ul>
+                    </div>
+                    <!-- CS Core Concepts -->
+                    <div class="skill-category-card">
+                        <h4><i class="fas fa-brain"></i> CS Core Concepts</h4>
+                        <ul>
+                            <li>Artificial Intelligence</li>
+                            <li>DSA & OOPS</li>
+                            <li>Operating Systems</li>
+                            <li>Cyber Security</li>
+                        </ul>
+                    </div>
+                    <!-- Creative Tools -->
+                    <div class="skill-category-card">
+                        <h4><i class="fas fa-palette"></i> Creative Tools</h4>
+                        <ul>
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Premiere Pro</li>
+                            <li>Canva</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Certifications Tab -->
+            <div class="tab-content" id="certifications">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certification-grid">
+                    <a href="https://www.linkedin.com/learning/certificates/1877f8549b05facec6f1a5abbf2bacb00fa3cb7ec17a47915d7703f8aed771c4?trk=share_certificate" target="_blank" class="certification-card">
+                        <h4><i class="fas fa-award" style="margin-right: 10px;"></i> Microsoft Azure Fundamentals (AZ-900)</h4>
+                        <p>Issued by Microsoft</p>
+                    </a>
+                    <a href="https://www.udemy.com/certificate/UC-bde62be3-7691-48d4-b51d-ac2f55d518e2/" target="_blank" class="certification-card">
+                        <h4><i class="fas fa-award" style="margin-right: 10px;"></i> The Complete Full-Stack Web Development Bootcamp</h4>
+                        <p>Issued by Udemy</p>
+                    </a>
+                    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_PXNa5rwReRyDQzy5W_1752555580140_completion_certificate.pdf" target="_blank" class="certification-card">
+                        <h4><i class="fas fa-award" style="margin-right: 10px;"></i> Data Analyst Experience Program</h4>
+                        <p>Issued by Deloitte Australia</p>
+                    </a>
+                </div>
+            </div>
+            <!-- Contact Tab -->
+            <div class="tab-content" id="contact">
+                <h2 class="section-title">Contact</h2>
+                <form class="contact-form" action="https://getform.io/f/apjpqppa" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="/portfolo.js"></script>
+</body>
+</ht
