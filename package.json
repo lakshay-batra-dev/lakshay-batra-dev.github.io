@@ -1,6 +1,6 @@
 
 {
-  "homepage": "https://lakshay-batra-dev.github.io",
+  "homepage": "https://lakshay-batra-dev.github.io/lakshay-batra-dev.github.io/",
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
 
   },
   "dependencies": {
