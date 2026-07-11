@@ -1,44 +1,94 @@
-import { Card } from "@/components/ui/card";
+import { useEffect, useRef } from "react";
+
+const STATS = [
+  { value: "94%", label: "ML model accuracy" },
+  { value: "40+", label: "API endpoints built" },
+  { value: "500+", label: "Event participants reached" },
+  { value: "2027", label: "Expected graduation" },
+];
 
 const About = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("visible");
+      }),
+      { threshold: 0.15 }
+    );
+    ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-black mb-12 text-center bg-gradient-primary bg-clip-text text-transparent">
-          About Me
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="animate-slide-in-left">
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I'm a passionate B.Tech student at Thapar Institute of Engineering & Technology with a strong foundation in full-stack development and artificial intelligence. I combine academic excellence with practical project experience.
+    <section id="about" className="section" ref={ref}>
+      <div className="section-inner">
+        {/* Eyebrow + title */}
+        <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+          <p className="eyebrow mb-3">01 / About</p>
+          <h2 className="section-title">Who I am</h2>
+          <div style={{ width: "48px", height: "3px", borderRadius: "99px", background: "var(--gradient-primary)", marginTop: "1rem" }} />
+        </div>
+
+        <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+          {/* Left — bio */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+            <p style={{ color: "hsl(0,0%,65%)", lineHeight: 1.85, fontSize: "1rem" }}>
+              I'm a Computer Science student at{" "}
+              <span style={{ color: "hsl(0,0%,90%)", fontWeight: 600 }}>Thapar Institute of Engineering & Technology</span>,
+              graduating in 2027. My work lives at the intersection of robust backend architecture and applied machine learning.
             </p>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              My expertise spans across Python, C++, React, and database management, with a keen interest in building innovative solutions that solve real-world problems. I thrive on learning new technologies and applying them creatively.
+            <p style={{ color: "hsl(0,0%,65%)", lineHeight: 1.85, fontSize: "1rem" }}>
+              I've engineered enterprise-grade systems with{" "}
+              <span style={{ color: "hsl(248,90%,75%)" }}>React, Node.js, Express, and MongoDB</span> — complete with
+              RBAC authorization, OTP-based 2FA, and dual rate limiting — and built ML pipelines in Python
+              that achieved{" "}
+              <span style={{ color: "hsl(248,90%,75%)" }}>94% biometric classification accuracy</span>.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Beyond coding, I'm passionate about digital creativity, having honed my skills in Adobe Photoshop, Premiere Pro, and Figma. I believe in the intersection of technology and design to create impactful user experiences.
+            <p style={{ color: "hsl(0,0%,65%)", lineHeight: 1.85, fontSize: "1rem" }}>
+              Outside of shipping code, I'm a core member of the{" "}
+              <span style={{ color: "hsl(0,0%,90%)", fontWeight: 600 }}>Entrepreneurship Development Cell @ TIET</span>,
+              helping organise E-Summit and mentor peers in startup culture.
             </p>
+
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+              {["Full-Stack", "Machine Learning", "DSA", "System Design", "REST APIs"].map((t) => (
+                <span key={t} className="chip">{t}</span>
+              ))}
+            </div>
           </div>
 
-          <Card className="p-8 bg-card/50 backdrop-blur-sm border-primary/20 animate-slide-in-right">
-            <h3 className="text-2xl font-bold mb-6 text-primary">Quick Facts</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center pb-4 border-b border-border/50">
-                <span className="text-muted-foreground">Location</span>
-                <span className="font-semibold">Patiala, India</span>
+          {/* Right — stats */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+            {STATS.map(({ value, label }) => (
+              <div
+                key={label}
+                className="surface"
+                style={{ padding: "1.5rem", borderRadius: "0.75rem" }}
+              >
+                <p
+                  className="text-gradient"
+                  style={{ fontSize: "2.25rem", fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}
+                >
+                  {value}
+                </p>
+                <p style={{ color: "hsl(0,0%,45%)", fontSize: "0.8rem", marginTop: "0.5rem", lineHeight: 1.4 }}>
+                  {label}
+                </p>
               </div>
-              <div className="flex justify-between items-center pb-4 border-b border-border/50">
-                <span className="text-muted-foreground">Education</span>
-                <span className="font-semibold">B.Tech @ Thapar</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-muted-foreground">Graduation</span>
-                <span className="font-semibold">2027</span>
-              </div>
-            </div>
-          </Card>
+            ))}
+          </div>
         </div>
+
+        {/* Mobile: stack on small screens */}
+        <style>{`
+          @media (max-width: 700px) {
+            #about .reveal > div:nth-child(2) {
+              grid-template-columns: 1fr;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

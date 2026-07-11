@@ -1,103 +1,168 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Github, ExternalLink } from "lucide-react";
+
+const PROJECTS = [
+  {
+    number: "01",
+    title: "IntelliFlow",
+    subtitle: "Enterprise Workflow Automation",
+    description:
+      "Architected a request-to-execution automation system converting client requests into multi-sprint projects via a multi-factor matching algorithm. Engineered 40+ RESTful endpoints with RBAC, distributed approval workflows, dependency management, and real-time aggregations across 6 cross-functional teams.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "TypeScript", "JWT", "2FA"],
+    github: "https://github.com/DROP5136/Intelliflow",
+    highlights: ["40+ API endpoints", "Enterprise security", "RBAC + OTP 2FA"],
+  },
+  {
+    number: "02",
+    title: "Keystroke Auth",
+    subtitle: "Behavioral Biometric Security",
+    description:
+      "Developed a behavioral biometric security layer analyzing 31 unique timing features — flight time, dwell time — to fingerprint users based on typing patterns. Benchmarked XGBoost, SVM, and Random Forest, achieving 94% accuracy on 200+ samples per user.",
+    tech: ["Python", "Scikit-learn", "XGBoost", "SVM", "NumPy", "Feature Engineering"],
+    github: "https://github.com/DROP5136/keystroke-authentication-system",
+    highlights: ["94% classification accuracy", "31 timing features", "200+ samples/user"],
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Facial Emotion Recognition System",
-      description: "Real-time facial emotion recognition using Python and OpenCV, trained on 2,000+ images achieving 85% accuracy in classifying emotions from live webcam input.",
-      tech: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
-      link: "https://fer-demo.vercel.app",
-      githubLink: "https://github.com/DROP5136/facial-emotion-recognition",
-      metrics: "85% Accuracy | 2,000+ Images",
-    },
-    {
-      title: "Netflix Database Management System",
-      description: "Comprehensive 12-table relational database managing movies, subscriptions, and 1,000+ user profiles with automated PL/SQL procedures for backend operations.",
-      tech: ["Oracle SQL", "PL/SQL", "Database Design", "ER Modeling"],
-      link: "https://netflix-dbms-demo.vercel.app",
-      githubLink: "https://github.com/DROP5136/netflix-dbms",
-      metrics: "12 Tables | 1,000+ Users | 5 Procedures",
-    },
-    {
-      title: "E-Commerce Website",
-      description: "Responsive e-commerce platform with real-time checkout, product filtering, and clean UI/UX supporting 200+ products with seamless user interaction.",
-      tech: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
-      link: "https://amazon-clone-demo.vercel.app",
-      githubLink: "https://github.com/DROP5136/amazon-clone",
-      metrics: "6 Core Features | 200+ Products",
-    },
-  ];
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-black mb-12 text-center bg-gradient-primary bg-clip-text text-transparent">
-          Featured Projects
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.title}
-              className="p-6 bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all hover:scale-105 flex flex-col animate-fade-in"
-              style={{ animationDelay: `${index * 0.15}s` }}
+    <section id="projects" className="section" ref={ref}>
+      <div className="section-inner">
+        <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+          <p className="eyebrow mb-3">03 / Projects</p>
+          <h2 className="section-title">Things I've built</h2>
+          <div style={{ width: "48px", height: "3px", borderRadius: "99px", background: "var(--gradient-primary)", marginTop: "1rem" }} />
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+          {PROJECTS.map((p, i) => (
+            <div
+              key={p.title}
+              className="reveal surface"
+              style={{
+                borderRadius: "1rem",
+                padding: "2.5rem",
+                display: "grid",
+                gridTemplateColumns: "80px 1fr",
+                gap: "2rem",
+                transitionDelay: `${i * 100}ms`,
+              }}
             >
-              <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-              <p className="text-muted-foreground mb-4 flex-grow leading-relaxed">
-                {project.description}
-              </p>
-              
-              <div className="mb-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
-                <p className="text-sm font-semibold text-primary">{project.metrics}</p>
+              {/* Number */}
+              <div>
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "2.5rem",
+                    fontWeight: 700,
+                    color: "hsl(0,0%,13%)",
+                    lineHeight: 1,
+                    display: "block",
+                  }}
+                >
+                  {p.number}
+                </span>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-secondary text-xs font-medium rounded-full"
+              {/* Content */}
+              <div>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
+                  <div>
+                    <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "hsl(0,0%,95%)", letterSpacing: "-0.02em" }}>
+                      {p.title}
+                    </h3>
+                    <p style={{ fontSize: "0.8rem", color: "hsl(248,90%,66%)", fontFamily: "'JetBrains Mono',monospace", marginTop: "2px" }}>
+                      {p.subtitle}
+                    </p>
+                  </div>
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      fontSize: "0.8rem",
+                      color: "hsl(0,0%,50%)",
+                      border: "1px solid hsl(0,0%,16%)",
+                      padding: "0.4rem 0.9rem",
+                      borderRadius: "0.5rem",
+                      textDecoration: "none",
+                      transition: "color 0.2s, border-color 0.2s, background 0.2s",
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseEnter={(e) => {
+                      const t = e.currentTarget;
+                      t.style.color = "hsl(0,0%,90%)";
+                      t.style.borderColor = "hsla(248,90%,66%,0.4)";
+                      t.style.background = "hsla(248,90%,66%,0.06)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const t = e.currentTarget;
+                      t.style.color = "hsl(0,0%,50%)";
+                      t.style.borderColor = "hsl(0,0%,16%)";
+                      t.style.background = "transparent";
+                    }}
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {(project.link || project.githubLink) && (
-                <div className="flex flex-wrap gap-2 w-full">
-                  {project.link && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 min-w-[120px] border-primary/40 hover:bg-primary/10"
-                      asChild
-                    >
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Live
-                      </a>
-                    </Button>
-                  )}
-                  {project.githubLink && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 min-w-[120px] border-primary/40 hover:bg-primary/10"
-                      asChild
-                    >
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                        <Github className="w-4 h-4 mr-2" />
-                        View Code
-                      </a>
-                    </Button>
-                  )}
+                    <Github size={14} />
+                    View Code
+                  </a>
                 </div>
-              )}
-            </Card>
+
+                <p style={{ color: "hsl(0,0%,52%)", lineHeight: 1.8, fontSize: "0.9rem", marginBottom: "1.25rem" }}>
+                  {p.description}
+                </p>
+
+                {/* Highlights */}
+                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  {p.highlights.map((h) => (
+                    <span
+                      key={h}
+                      style={{
+                        fontSize: "0.72rem",
+                        fontFamily: "'JetBrains Mono',monospace",
+                        color: "hsl(316,70%,70%)",
+                        background: "hsla(316,70%,60%,0.08)",
+                        border: "1px solid hsla(316,70%,60%,0.2)",
+                        padding: "0.2rem 0.6rem",
+                        borderRadius: "0.375rem",
+                      }}
+                    >
+                      ✦ {h}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Tech stack */}
+                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  {p.tech.map((t) => (
+                    <span key={t} className="chip" style={{ fontSize: "0.72rem" }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          #projects .surface > div:first-child { display: none; }
+          #projects .surface { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 };

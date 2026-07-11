@@ -1,107 +1,226 @@
-import { Card } from "@/components/ui/card";
-import { Award, Briefcase, GraduationCap } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const Experience = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="experience" className="py-20 px-6 bg-secondary/30">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-black mb-12 text-center bg-gradient-primary bg-clip-text text-transparent">
-          Education & Experience
-        </h2>
-        
-        <div className="grid lg:grid-cols-2 gap-8">
+    <section
+      id="experience"
+      className="section"
+      ref={ref}
+      style={{ background: "hsl(0,0%,5%)" }}
+    >
+      <div className="section-inner">
+        <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+          <p className="eyebrow mb-3">04 / Background</p>
+          <h2 className="section-title">Education & Experience</h2>
+          <div style={{ width: "48px", height: "3px", borderRadius: "99px", background: "var(--gradient-primary)", marginTop: "1rem" }} />
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
           {/* Education */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <GraduationCap className="w-8 h-8 text-primary" />
-              <h3 className="text-2xl font-bold">Education</h3>
-            </div>
-            <div className="space-y-4">
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-                <h4 className="text-xl font-bold mb-2">B.Tech in Engineering</h4>
-                <p className="text-primary font-semibold mb-2">Thapar Institute of Engineering & Technology</p>
-                <p className="text-sm text-muted-foreground mb-2">2023 - 2027</p>
-                <p className="text-sm text-muted-foreground">Patiala, Punjab</p>
-              </Card>
-
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-                <h4 className="text-xl font-bold mb-2">CBSE Class XII</h4>
-                <p className="text-primary font-semibold mb-2">Scholars Rosary Sr. Sec. School</p>
-                <div className="flex justify-between text-sm text-muted-foreground mb-2">
-                  <span>2023</span>
-                  <span className="font-semibold text-foreground">92%</span>
+          <div className="reveal" style={{ alignSelf: "start" }}>
+            <p
+              style={{
+                fontSize: "0.7rem",
+                fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "hsl(0,0%,35%)",
+                marginBottom: "1.75rem",
+              }}
+            >
+              Education
+            </p>
+            <div className="timeline">
+              {/* TIET */}
+              <div style={{ position: "relative", marginBottom: "2.5rem" }}>
+                <div className="timeline-dot" />
+                <div style={{ marginBottom: "0.25rem", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "hsl(0,0%,90%)" }}>
+                    B.Tech — Computer Science & Engineering
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: "0.72rem",
+                      fontFamily: "'JetBrains Mono',monospace",
+                      color: "hsl(248,90%,66%)",
+                      background: "hsla(248,90%,66%,0.08)",
+                      border: "1px solid hsla(248,90%,66%,0.2)",
+                      padding: "0.15rem 0.5rem",
+                      borderRadius: "0.375rem",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    2023 – 2027
+                  </span>
                 </div>
-                <p className="text-sm text-muted-foreground">Rohtak, Haryana</p>
-              </Card>
+                <p style={{ color: "hsl(248,90%,70%)", fontSize: "0.875rem", fontWeight: 500, marginBottom: "0.35rem" }}>
+                  Thapar Institute of Engineering & Technology
+                </p>
+                <p style={{ color: "hsl(0,0%,40%)", fontSize: "0.8rem" }}>Patiala, Punjab</p>
+              </div>
 
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-                <h4 className="text-xl font-bold mb-2">CBSE Class X</h4>
-                <p className="text-primary font-semibold mb-2">Scholars Rosary Sr. Sec. School</p>
-                <div className="flex justify-between text-sm text-muted-foreground mb-2">
-                  <span>2021</span>
-                  <span className="font-semibold text-foreground">94.6%</span>
+              {/* Class XII */}
+              <div style={{ position: "relative", marginBottom: "2.5rem" }}>
+                <div className="timeline-dot" style={{ background: "hsl(316,70%,60%)", boxShadow: "0 0 10px hsla(316,70%,60%,0.5)" }} />
+                <div style={{ marginBottom: "0.25rem", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "hsl(0,0%,90%)" }}>
+                    CBSE Class XII
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: "0.72rem",
+                      fontFamily: "'JetBrains Mono',monospace",
+                      color: "hsl(316,70%,70%)",
+                      background: "hsla(316,70%,60%,0.08)",
+                      border: "1px solid hsla(316,70%,60%,0.2)",
+                      padding: "0.15rem 0.5rem",
+                      borderRadius: "0.375rem",
+                    }}
+                  >
+                    92% — Mar 2023
+                  </span>
                 </div>
-                <p className="text-sm text-muted-foreground">Rohtak, Haryana</p>
-              </Card>
+                <p style={{ color: "hsl(316,70%,70%)", fontSize: "0.875rem", fontWeight: 500, marginBottom: "0.35rem" }}>
+                  Scholars Rosary Sr. Sec. School
+                </p>
+                <p style={{ color: "hsl(0,0%,40%)", fontSize: "0.8rem" }}>Rohtak, Haryana</p>
+              </div>
+
+              {/* Class X */}
+              <div style={{ position: "relative" }}>
+                <div className="timeline-dot" style={{ background: "hsl(168,70%,45%)", boxShadow: "0 0 10px hsla(168,70%,45%,0.5)" }} />
+                <div style={{ marginBottom: "0.25rem", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "hsl(0,0%,90%)" }}>
+                    CBSE Class X
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: "0.72rem",
+                      fontFamily: "'JetBrains Mono',monospace",
+                      color: "hsl(168,70%,55%)",
+                      background: "hsla(168,70%,45%,0.08)",
+                      border: "1px solid hsla(168,70%,45%,0.2)",
+                      padding: "0.15rem 0.5rem",
+                      borderRadius: "0.375rem",
+                    }}
+                  >
+                    94.6% — Mar 2021
+                  </span>
+                </div>
+                <p style={{ color: "hsl(168,70%,55%)", fontSize: "0.875rem", fontWeight: 500, marginBottom: "0.35rem" }}>
+                  Scholars Rosary Sr. Sec. School
+                </p>
+                <p style={{ color: "hsl(0,0%,40%)", fontSize: "0.8rem" }}>Rohtak, Haryana</p>
+              </div>
             </div>
           </div>
 
-          {/* Leadership & Certifications */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <Briefcase className="w-8 h-8 text-primary" />
-              <h3 className="text-2xl font-bold">Leadership</h3>
-            </div>
-            <div className="space-y-4 mb-8">
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-                <h4 className="text-xl font-bold mb-2">Team Leader</h4>
-                <p className="text-primary font-semibold mb-2">Adobe India Hackathon</p>
-                <p className="text-sm text-muted-foreground">
-                  Led a team of 3 members to design tech-driven solutions, facilitating collaboration and guiding technical decisions to deliver a functional prototype.
+          {/* Right column */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+            {/* EDC */}
+            <div className="reveal" style={{ transitionDelay: "100ms" }}>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "hsl(0,0%,35%)",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Leadership
+              </p>
+              <div
+                className="surface"
+                style={{ borderRadius: "0.75rem", padding: "1.5rem" }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.5rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "hsl(0,0%,90%)" }}>Member</h3>
+                  <span className="chip" style={{ fontSize: "0.7rem" }}>TIET</span>
+                </div>
+                <p style={{ color: "hsl(248,90%,70%)", fontSize: "0.85rem", fontWeight: 500, marginBottom: "0.75rem" }}>
+                  Entrepreneurship Development Cell (EDC)
                 </p>
-              </Card>
-
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-                <h4 className="text-xl font-bold mb-2">Delegate</h4>
-                <p className="text-primary font-semibold mb-2">Model United Nations (MUN)</p>
-                <p className="text-sm text-muted-foreground">
-                  Represented countries in inter-school MUNs, debating global issues and drafting resolutions while developing public speaking and diplomacy skills.
-                </p>
-              </Card>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                  {[
+                    "Coordinated logistics for E-Summit — 500+ participants",
+                    "Facilitated workshops on business modeling & startup pitching",
+                  ].map((pt) => (
+                    <li key={pt} style={{ color: "hsl(0,0%,50%)", fontSize: "0.85rem", display: "flex", gap: "0.5rem" }}>
+                      <span style={{ color: "hsl(248,90%,66%)", flexShrink: 0 }}>—</span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 mb-6">
-              <Award className="w-8 h-8 text-primary" />
-              <h3 className="text-2xl font-bold">Certifications</h3>
+            {/* Certifications */}
+            <div className="reveal" style={{ transitionDelay: "200ms" }}>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "hsl(0,0%,35%)",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Certifications
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                {[
+                  { name: "Machine Learning Specialization", issuer: "Stanford Online & DeepLearning.AI (Coursera)", year: "2025" },
+                  { name: "Full-Stack Web Development Bootcamp", issuer: "Udemy — Dr. Angela Yu", year: "2025" },
+                ].map(({ name, issuer, year }) => (
+                  <div
+                    key={name}
+                    className="surface"
+                    style={{ borderRadius: "0.75rem", padding: "1rem 1.25rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}
+                  >
+                    <div>
+                      <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "hsl(0,0%,88%)" }}>{name}</p>
+                      <p style={{ fontSize: "0.78rem", color: "hsl(0,0%,45%)", marginTop: "2px" }}>{issuer}</p>
+                    </div>
+                    <span
+                      style={{
+                        fontSize: "0.72rem",
+                        fontFamily: "'JetBrains Mono',monospace",
+                        color: "hsl(248,90%,66%)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {year}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">▪</span>
-                  <div>
-                    <p className="font-semibold">Microsoft Azure Fundamentals (AZ-900)</p>
-                    <p className="text-sm text-muted-foreground">Microsoft | June - July 2025</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">▪</span>
-                  <div>
-                    <p className="font-semibold">Full-Stack Web Development Bootcamp</p>
-                    <p className="text-sm text-muted-foreground">Udemy | May - July 2025</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">▪</span>
-                  <div>
-                    <p className="font-semibold">Data Analyst Experience Program</p>
-                    <p className="text-sm text-muted-foreground">Deloitte Australia | June - July 2025</p>
-                  </div>
-                </li>
-              </ul>
-            </Card>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 700px) {
+          #experience .section-inner > div:nth-child(2) {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
