@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Github, Linkedin, Mail, Phone, Download } from "lucide-react";
+import LeetCodeIcon from "./LeetCodeIcon";
 
 const CONTACT_LINKS = [
   {
@@ -25,6 +26,12 @@ const CONTACT_LINKS = [
     label: "GitHub",
     value: "DROP5136",
     href: "https://github.com/DROP5136",
+  },
+  {
+    Icon: LeetCodeIcon,
+    label: "LeetCode",
+    value: "DROP5136",
+    href: "https://leetcode.com/u/DROP5136/",
   },
 ];
 

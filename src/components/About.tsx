@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const STATS = [
   { value: "94%", label: "ML model accuracy" },
-  { value: "40+", label: "API endpoints built" },
+  { value: "400", label: "Typing samples per user" },
   { value: "500+", label: "Event participants reached" },
   { value: "2027", label: "Expected graduation" },
 ];
@@ -40,9 +40,9 @@ const About = () => {
               graduating in 2027. My work lives at the intersection of robust backend architecture and applied machine learning.
             </p>
             <p style={{ color: "hsl(0,0%,65%)", lineHeight: 1.85, fontSize: "1rem" }}>
-              I've engineered enterprise-grade systems with{" "}
-              <span style={{ color: "hsl(248,90%,75%)" }}>React, Node.js, Express, and MongoDB</span> — complete with
-              RBAC authorization, OTP-based 2FA, and dual rate limiting — and built ML pipelines in Python
+              I've built an agentic workflow platform with{" "}
+              <span style={{ color: "hsl(248,90%,75%)" }}>React, Node.js, FastAPI, and LangGraph</span> — including
+              JWT auth, OTP-based 2FA, and LLM-driven request classification — and ML pipelines in Python
               that achieved{" "}
               <span style={{ color: "hsl(248,90%,75%)" }}>94% biometric classification accuracy</span>.
             </p>

@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import LeetCodeIcon from "./LeetCodeIcon";
 
 const ROLES = [
   "Full Stack Developer",
@@ -107,6 +108,7 @@ const Hero = () => {
           {[
             { href: "https://github.com/DROP5136", Icon: Github, label: "GitHub" },
             { href: "https://www.linkedin.com/in/lakshay-batra-dev/", Icon: Linkedin, label: "LinkedIn" },
+            { href: "https://leetcode.com/u/DROP5136/", Icon: LeetCodeIcon, label: "LeetCode" },
             { href: "mailto:batralakshay16@gmail.com", Icon: Mail, label: "Email" },
           ].map(({ href, Icon, label }) => (
             <a

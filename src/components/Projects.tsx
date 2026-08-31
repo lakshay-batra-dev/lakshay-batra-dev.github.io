@@ -5,22 +5,22 @@ const PROJECTS = [
   {
     number: "01",
     title: "IntelliFlow",
-    subtitle: "Enterprise Workflow Automation",
+    subtitle: "Workflow Automation Platform",
     description:
-      "Architected a request-to-execution automation system converting client requests into multi-sprint projects via a multi-factor matching algorithm. Engineered 40+ RESTful endpoints with RBAC, distributed approval workflows, dependency management, and real-time aggregations across 6 cross-functional teams.",
-    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "TypeScript", "JWT", "2FA"],
+      "Architected an agentic workflow platform that converts client requests into structured projects through AI classification, dynamic task breakdown, employee matching, and approval workflows. Built React + TypeScript portals for clients, employees, and managers, a Node.js/Express REST API on MongoDB, and a FastAPI AI microservice using LangGraph and Groq LLMs — with JWT, OTP 2FA, rate limiting, and matching on skills, workload, availability, and department.",
+    tech: ["React.js", "Node.js", "MongoDB", "LangGraph", "FastAPI", "TypeScript", "Groq"],
     github: "https://github.com/DROP5136/Intelliflow",
-    highlights: ["40+ API endpoints", "Enterprise security", "RBAC + OTP 2FA"],
+    highlights: ["AI request classification", "LangGraph + Groq LLMs", "OTP 2FA + JWT"],
   },
   {
     number: "02",
     title: "Keystroke Auth",
     subtitle: "Behavioral Biometric Security",
     description:
-      "Developed a behavioral biometric security layer analyzing 31 unique timing features — flight time, dwell time — to fingerprint users based on typing patterns. Benchmarked XGBoost, SVM, and Random Forest, achieving 94% accuracy on 200+ samples per user.",
-    tech: ["Python", "Scikit-learn", "XGBoost", "SVM", "NumPy", "Feature Engineering"],
+      "Developed a behavioral biometric authentication system analyzing 31 keystroke-timing features to authenticate users from unique typing patterns. Benchmarked XGBoost, SVM, Random Forest, and ensemble models, achieving 94% accuracy across 400 typing samples per user with feature engineering, standardization, independent train/test splits, and threshold optimization.",
+    tech: ["Python", "Scikit-learn", "XGBoost", "SVM", "Random Forest"],
     github: "https://github.com/DROP5136/keystroke-authentication-system",
-    highlights: ["94% classification accuracy", "31 timing features", "200+ samples/user"],
+    highlights: ["94% classification accuracy", "31 timing features", "400 samples/user"],
   },
 ];
 

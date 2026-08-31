@@ -11,6 +11,7 @@ const SKILL_CATEGORIES = [
       { name: "Node.js", tag: "IntelliFlow" },
       { name: "Express.js", tag: "IntelliFlow" },
       { name: "MongoDB", tag: "IntelliFlow" },
+      { name: "FastAPI", tag: "IntelliFlow" },
     ],
   },
   {
@@ -31,7 +32,7 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: "JWT Auth", tag: "IntelliFlow" },
       { name: "OTP-based 2FA", tag: "IntelliFlow" },
-      { name: "RBAC Authorization", tag: "IntelliFlow" },
+      { name: "LangGraph", tag: "IntelliFlow" },
       { name: "REST API Design", tag: "IntelliFlow" },
       { name: "MySQL", tag: "Coursework" },
       { name: "SQL", tag: "Coursework" },

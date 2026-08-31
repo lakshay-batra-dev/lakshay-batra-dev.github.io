@@ -183,8 +183,8 @@ const Experience = () => {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 {[
-                  { name: "Machine Learning Specialization", issuer: "Stanford Online & DeepLearning.AI (Coursera)", year: "2025" },
-                  { name: "Full-Stack Web Development Bootcamp", issuer: "Udemy — Dr. Angela Yu", year: "2025" },
+                  { name: "Machine Learning Specialization", issuer: "Stanford Online & DeepLearning.AI", year: "2025" },
+                  { name: "Microsoft Azure Fundamentals (AZ-900)", issuer: "Microsoft", year: "2025" },
                 ].map(({ name, issuer, year }) => (
                   <div
                     key={name}
